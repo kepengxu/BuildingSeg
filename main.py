@@ -9,12 +9,13 @@ from torch import optim
 from utils.losses import get_lossf
 import socket
 print(socket.gethostname())
+from utils.metrics import *
 from preporcess.CrowdaiData import GetDataloader
 from multiprocessing import cpu_count
 modeldict={
     'Unet8':UNet8
 }
-
+import os
 logger = logging.getLogger(__name__)
 logger.setLevel(level=logging.INFO)
 handler = logging.FileHandler(socket.gethostname()+"log.txt")
@@ -27,7 +28,7 @@ console.setLevel(logging.INFO)
 
 logger.addHandler(handler)
 logger.addHandler(console)
-
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 def get_lrs(optimizer):
     lrs = []
     for pgs in optimizer.state_dict()['param_groups']:
@@ -35,11 +36,28 @@ def get_lrs(optimizer):
     lrs = ['{:.6f}'.format(x) for x in lrs]
     return lrs
 
+def validate(model, val_loader,epoch=0):
+    model.eval()
+    outputs = []
+    YT=[]
+    with torch.no_grad():
+        for image, yt, in val_loader:
+            image, yt= image.to(device),yt.to(device)
+            yp= model(image)
+            for o in yp.cpu():
+                outputs.append(o.numpy())
+            for y in yt.cpu():
+                YT.append(y.numpy())
+        Iou,IoUt=IoU(YT,outputs),iout(YT,outputs)
+    return Iou,IoUt
+
+
+
 def train(config_path):
     logger.info("-----------Start parse experiments-------------")
     f=open(config_path)
     config=yaml.load(f)
-    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+
     logger.info(str(device) + ' Device is available ')
 
     traindataloader,valdaraloader=GetDataloader(trainimagepath=config['CrowdaiData']['trainimagepath'],
@@ -50,8 +68,12 @@ def train(config_path):
                                                 padshape=config['CrowdaiData']['padshape'],batchsize=config['batchsize'],
                                                 numworkers=int(cpu_count()))
     logger.info("Obtain Dataloader successful ")
-
+    pathdir=os.path.join(config['dataroot'],config['modellogdir'],config['modeltype'])
+    if not os.path.exists(pathdir):
+        os.makedirs(pathdir)
+    logger.info('The model ckp will save in :'+' <  '+pathdir+'  >')
     model=modeldict[config['modeltype']](50,3).to(device)
+    bestiout=0.0
     if not config['init_ckp'] == 'None':
         CKP=config['init_ckp']
         logger.info('loading {}...'.format(CKP))
@@ -77,7 +99,8 @@ def train(config_path):
         train_loss=0.0
         clr=get_lrs(optimizer)
         bg=time.time()
-        print('epoch |   lr    |   %       |  loss  |  avg   | f loss | lovaz  |  iou   | iout   |  best  | time | save |  salt  |')
+        model.train()
+        print('epoch |   lr    |   %       |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
         for batch_i, (imgs, targets) in enumerate(traindataloader):
             imgs=imgs.to(device)
             targets=targets.to(device)
@@ -91,6 +114,21 @@ def train(config_path):
             optimizer.step()
 
             train_loss += loss.item()
+        iou,iout=validate(model,valdaraloader,epoch)
+        if iout>bestiout:
+            best_iout = iout
+            path=pathdir+'/'+'Iout-{:.4f}.pkl'.format(bestiout)
+            torch.save(model.state_dict(),path)
+        print('| {:.4f} | {:.4f} | {:.4f} | {:.2f} | {:4s} |'.format(iou, iout, best_iout, (time.time() - bg) / 60,pathdir))
+        if config['lr_scheduler']== 'RP':
+            lr_scheduler.step(best_iout)
+        else:
+            lr_scheduler.step()
+
+
+    del model,traindataloader,valdaraloader,optimizer,lr_scheduler
+    torch.cuda.empty_cache()
+    logger.info('-------Experiment have finish!-------')
 
 
 if __name__=='__main__':
