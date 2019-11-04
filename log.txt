@@ -1,0 +1,45 @@
+2019-11-03 14:21:55,888 - __main__ - INFO - Start print log
+2019-11-03 14:24:01,630 - __main__ - INFO - Start parse configs
+2019-11-03 14:24:35,961 - __main__ - INFO - Start parse configs
+2019-11-03 14:25:20,724 - __main__ - INFO - Start parse configs
+2019-11-03 14:25:20,728 - __main__ - INFO - Obtain Dataloader
+2019-11-03 14:26:33,002 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:26:34,519 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:32:06,624 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:32:06,642 - __main__ - INFO - Device 
+2019-11-03 14:32:08,752 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:33:05,277 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:33:05,279 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:33:06,136 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:33:23,169 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:33:23,171 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:33:24,012 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:37:28,122 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:37:28,125 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:37:28,993 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:38:17,724 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:38:17,726 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:38:18,599 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:38:35,566 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:38:35,568 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:38:36,418 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:38:48,813 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:38:48,815 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:38:49,700 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:39:29,479 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:42:03,021 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:42:03,023 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:42:04,115 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:42:08,415 - __main__ - INFO - Not loadding weights
+2019-11-03 14:50:06,896 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:50:06,925 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:50:08,036 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:50:56,095 - __main__ - INFO - Not loadding weights
+2019-11-03 14:50:56,198 - __main__ - INFO - Using SGD as optimizer 
+2019-11-03 14:50:56,198 - __main__ - INFO - Using RP as optimizer 
+2019-11-03 14:53:04,307 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-03 14:53:04,329 - __main__ - INFO - cpu Device is available 
+2019-11-03 14:53:05,453 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-03 14:53:08,042 - __main__ - INFO - Not loadding weights
+2019-11-03 14:53:08,043 - __main__ - INFO - Using SGD as optimizer 
+2019-11-03 14:53:08,043 - __main__ - INFO - Using RP as  learning scheduler

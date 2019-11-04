@@ -1,0 +1,16 @@
+dataroot: "/home/cooper/PycharmProjects/BuildingSeg"
+modellogdir: "LOG"
+modeltype: "Unet8"                            # Unet
+batchsize: 16
+optimizer: SGD                               #   Adam or SGD
+lr: 0.001
+lr_scheduler: RP                             #   Cos or Rp
+init_ckp: None
+epoch: 40
+CrowdaiData:
+  trainimagepath: "/home/cooper/Dataset/Crowdai/train/images"
+  trainmaskpath:  "/home/cooper/Dataset/Crowdai/train/annotation-small.json"
+  valimagepath:   "/home/cooper/Dataset/Crowdai/val/images"
+  valmaskpath:    "/home/cooper/Dataset/Crowdai/val/annotation-small.json"
+  shape: 256
+  padshape: 312
