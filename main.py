@@ -38,18 +38,24 @@ def get_lrs(optimizer):
 
 def validate(model, val_loader,epoch=0):
     model.eval()
-    outputs = []
-    YT=[]
+    Ioul=[]
+    Ioutl=[]
     with torch.no_grad():
-        for image, yt, in val_loader:
+        for batch_i,(image, yt), in enumerate(val_loader):
             image, yt= image.to(device),yt.to(device)
             yp= model(image)
+            ypl=[]
+            ytl=[]
             for o in yp.cpu():
-                outputs.append(o.numpy())
+                ypl.append(o.numpy())
             for y in yt.cpu():
-                YT.append(y.numpy())
-        Iou,IoUt=IoU(YT,outputs),iout(YT,outputs)
-    return Iou,IoUt
+                ytl.append(y.numpy())
+            Iou,IoUt=IoU(ytl,ypl),iout(ytl,ypl)
+            Ioul.extend(Iou)
+            Ioutl.extend(IoUt)
+            if batch_i>1000:
+                break
+    return np.mean(Ioul),np.mean(Ioutl)
 
 
 
@@ -100,28 +106,30 @@ def train(config_path):
         clr=get_lrs(optimizer)
         bg=time.time()
         model.train()
-        print('epoch |   lr    |   %       |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
+        print('epoch |   lr    |         %         |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
         for batch_i, (imgs, targets) in enumerate(traindataloader):
             imgs=imgs.to(device)
             targets=targets.to(device)
             optimizer.zero_grad()
             output=model(imgs)
             loss=lossfunction(output, targets)
-            print('\r {:4d} | {:.5f} | {:4d}/{} | {:.4f} | {:.4f} |'.format(
+            print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} |'.format(
                 epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__()*config['batchsize'], loss.item(),
                                              train_loss / (batch_i + 1)), end='')
             loss.backward()
             optimizer.step()
 
             train_loss += loss.item()
+            # if batch_i>10:
+            #     break
         iou,iout=validate(model,valdaraloader,epoch)
         if iout>bestiout:
-            best_iout = iout
+            bestiout = iout
             path=pathdir+'/'+'Iout-{:.4f}.pkl'.format(bestiout)
             torch.save(model.state_dict(),path)
-        print('| {:.4f} | {:.4f} | {:.4f} | {:.2f} | {:4s} |'.format(iou, iout, best_iout, (time.time() - bg) / 60,pathdir))
+        print(' {:.4f} | {:.4f} | {:.4f} | {:.2f} | {:4s}                               |'.format(iou, iout, bestiout, (time.time() - bg) / 60,pathdir))
         if config['lr_scheduler']== 'RP':
-            lr_scheduler.step(best_iout)
+            lr_scheduler.step(bestiout)
         else:
             lr_scheduler.step()
 
