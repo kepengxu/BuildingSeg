@@ -85,7 +85,7 @@ def train(config_path):
             output=model(imgs)
             loss=lossfunction(output, targets)
             print('\r {:4d} | {:.5f} | {:4d}/{} | {:.4f} | {:.4f} |'.format(
-                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__(), loss.item(),
+                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__()*config['batchsize'], loss.item(),
                                              train_loss / (batch_i + 1)), end='')
             loss.backward()
             optimizer.step()
