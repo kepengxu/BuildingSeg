@@ -50,3 +50,8 @@ class BCEDiceLoss(DiceLoss):
         dice = super().forward(y_pr, y_gt)
         bce = self.bce(y_pr, y_gt)
         return dice + bce
+def get_lossf():
+    F = nn.BCEWithLogitsLoss(reduction='mean')
+    def weightloss(pr,gt):
+        return F(pr,gt)
+    return weightloss

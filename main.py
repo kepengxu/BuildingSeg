@@ -6,6 +6,9 @@ from models.unet import UNet8
 import torch
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 from torch import optim
+from utils.losses import get_lossf
+import socket
+print(socket.gethostname())
 from preporcess.CrowdaiData import GetDataloader
 from multiprocessing import cpu_count
 modeldict={
@@ -14,7 +17,7 @@ modeldict={
 
 logger = logging.getLogger(__name__)
 logger.setLevel(level=logging.INFO)
-handler = logging.FileHandler("log.txt")
+handler = logging.FileHandler(socket.gethostname()+"log.txt")
 handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -25,12 +28,18 @@ console.setLevel(logging.INFO)
 logger.addHandler(handler)
 logger.addHandler(console)
 
+def get_lrs(optimizer):
+    lrs = []
+    for pgs in optimizer.state_dict()['param_groups']:
+        lrs.append(pgs['lr'])
+    lrs = ['{:.6f}'.format(x) for x in lrs]
+    return lrs
 
 def train(config_path):
     logger.info("-----------Start parse experiments-------------")
     f=open(config_path)
     config=yaml.load(f)
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
     logger.info(str(device) + ' Device is available ')
 
     traindataloader,valdaraloader=GetDataloader(trainimagepath=config['CrowdaiData']['trainimagepath'],
@@ -83,18 +92,9 @@ def train(config_path):
 
             train_loss += loss.item()
 
+
 if __name__=='__main__':
     train('config.yml')
 
-def get_lrs(optimizer):
-    lrs = []
-    for pgs in optimizer.state_dict()['param_groups']:
-        lrs.append(pgs['lr'])
-    lrs = ['{:.6f}'.format(x) for x in lrs]
-    return lrs
-def get_lossf():
-    F = nn.BCEWithLogitsLoss(reduction='mean')
-    def weightloss(pr,gt):
-        return F(pr,gt)
-    return weightloss
+
 

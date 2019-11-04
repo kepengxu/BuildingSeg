@@ -43,3 +43,27 @@
 2019-11-03 14:53:08,042 - __main__ - INFO - Not loadding weights
 2019-11-03 14:53:08,043 - __main__ - INFO - Using SGD as optimizer 
 2019-11-03 14:53:08,043 - __main__ - INFO - Using RP as  learning scheduler
+2019-11-04 11:27:39,615 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-04 11:27:39,688 - __main__ - INFO - cuda:0 Device is available 
+2019-11-04 11:27:40,410 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-04 11:27:49,009 - __main__ - INFO - Not loadding weights
+2019-11-04 11:27:49,010 - __main__ - INFO - Using SGD as optimizer 
+2019-11-04 11:27:49,011 - __main__ - INFO - Using RP as  learning scheduler
+2019-11-04 11:28:48,672 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-04 11:28:48,704 - __main__ - INFO - cuda:0 Device is available 
+2019-11-04 11:28:49,220 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-04 11:28:51,373 - __main__ - INFO - Not loadding weights
+2019-11-04 11:28:51,374 - __main__ - INFO - Using SGD as optimizer 
+2019-11-04 11:28:51,374 - __main__ - INFO - Using RP as  learning scheduler
+2019-11-04 11:29:56,012 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-04 11:29:56,045 - __main__ - INFO - cuda:1 Device is available 
+2019-11-04 11:29:56,558 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-04 11:29:58,742 - __main__ - INFO - Not loadding weights
+2019-11-04 11:29:58,743 - __main__ - INFO - Using SGD as optimizer 
+2019-11-04 11:29:58,743 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-04 11:30:22,729 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-04 11:30:22,761 - __main__ - INFO - cuda:1 Device is available 
+2019-11-04 11:30:23,271 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-04 11:30:25,443 - __main__ - INFO - Not loadding weights
+2019-11-04 11:30:25,444 - __main__ - INFO - Using SGD as optimizer 
+2019-11-04 11:30:25,444 - __main__ - INFO - Using Cos as  learning scheduler
