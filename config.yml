@@ -2,7 +2,7 @@ dataroot: "/Disk4/xkp/project/BuildingSeg"
 modellogdir: "LOG"
 modeltype: "Unet8"                            # Unet
 batchsize: 8
-optimizer: SGD                               #   Adam or SGD
+optimizer: Adam                               #   Adam or SGD
 lr: 0.005
 lr_scheduler: Cos                             #   Cos or Rp
 init_ckp: None

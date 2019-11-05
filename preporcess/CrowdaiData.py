@@ -114,7 +114,7 @@ def GetDataloader(trainimagepath,
     traindata=CrowdaiData(trainmaskpath,trainimagepath,padshape=padshape,shape=shape)
     trainloader=data.DataLoader(traindata,batch_size=batchsize,shuffle = True, num_workers =numworkers)
 
-    valdata=CrowdaiData(valmaskpath,valimagepath,padshape=padshape,shape=shape)
+    valdata=CrowdaiData(valmaskpath,valimagepath,padshape=padshape,shape=shape,K=False)
     valloader=data.DataLoader(valdata,batch_size=batchsize,shuffle = False, num_workers =numworkers)
     return trainloader,valloader
 

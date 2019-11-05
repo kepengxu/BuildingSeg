@@ -120,11 +120,11 @@ def train(config_path):
             optimizer.step()
 
             train_loss += loss.item()
-            # if batch_i>10:
-            #     break
+            if batch_i>280741//80:
+                break
         iou,iout=validate(model,valdaraloader,epoch)
-        if iout>bestiout:
-            bestiout = iout
+        if iou>bestiout:
+            bestiout = iou
             path=pathdir+'/'+'Iout-{:.4f}.pkl'.format(bestiout)
             torch.save(model.state_dict(),path)
         print(' {:.4f} | {:.4f} | {:.4f} | {:.2f} | {:4s}                               |'.format(iou, iout, bestiout, (time.time() - bg) / 60,pathdir))
