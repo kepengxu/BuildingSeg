@@ -84,20 +84,22 @@ class CrowdaiData(data.Dataset):
                     ShiftScaleRotate(
                         shift_limit=0.1,  # no resizing
                         scale_limit=0.1,
-                        rotate_limit=10,  # rotate
+                        rotate_limit=5,  # rotate
                         p=0.5,
                         border_mode=cv2.BORDER_REFLECT),
                     PadIfNeeded(self.padshape, self.padshape),
 
                 ]
             )
-            List_Transforms.extend(
-                [
-                    RandomCrop(self.shape,self.shape),
-                    Normalize(mean=(0.397657144,0.351649219,0.305031406),std=(0.229, 0.224, 0.225)),
-                    ToTensor(),
-                ]
-            )
+        List_Transforms.extend(
+            [
+
+                # Normalize(mean=(0.397657144,0.351649219,0.305031406),std=(0.229, 0.224, 0.225)),
+                RandomCrop(self.shape, self.shape),
+                ToTensor(),
+
+            ]
+        )
         TR=Compose(List_Transforms)
         return TR
 

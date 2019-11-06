@@ -567,7 +567,7 @@ class UNet8(nn.Module):
             nn.ReLU(inplace=True),
             nn.Linear(128, 1),
         )
-
+        self.sigmod=nn.Sigmoid()
     def forward(self, x):
         e1 = self.encoder1(x) #; print('e1:', e1.size())
         e2 = self.encoder2(e1) #; print('e2:', e2.size())
@@ -592,9 +592,8 @@ class UNet8(nn.Module):
         ), 1)
 
         f = F.dropout2d(f, p=self.dropout_2d)
-
         o=self.logit(f)
-
+        o=self.sigmod(o)
         return o
 
 

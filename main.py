@@ -16,6 +16,7 @@ modeldict={
     'Unet8':UNet8
 }
 import os
+from utils.RAdam import RAdam
 logger = logging.getLogger(__name__)
 logger.setLevel(level=logging.INFO)
 handler = logging.FileHandler(socket.gethostname()+"log.txt")
@@ -47,10 +48,10 @@ def validate(model, val_loader,epoch=0):
             ypl=[]
             ytl=[]
             for o in yp.cpu():
-                ypl.append(o.numpy())
+                ypl.append(o)
             for y in yt.cpu():
-                ytl.append(y.numpy())
-            Iou,IoUt=IoU(ytl,ypl),iout(ytl,ypl)
+                ytl.append(y)
+            Iou,IoUt=IoU(ypl,ytl),iout(ypl,ytl)
             Ioul.extend(Iou)
             Ioutl.extend(IoUt)
             if batch_i>1000:
@@ -90,7 +91,8 @@ def train(config_path):
     if config['optimizer']=='SGD':
         optimizer = optim.SGD(model.parameters(), lr=config['lr'], momentum=0.9, weight_decay=0.0001)
     else:
-        optimizer = optim.Adam(model.parameters(), lr=config['lr'], weight_decay=0.0001)
+        # optimizer = optim.Adam(model.parameters(), lr=config['lr'], weight_decay=0.0001)
+        optimizer=RAdam(model.parameters(), lr=config['lr'], weight_decay=0.0001)
     logger.info('Using '+config['optimizer']+' as optimizer ')
     if config['lr_scheduler'] == 'RP':
         lr_scheduler = ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=6, min_lr=0.00001)
@@ -106,26 +108,28 @@ def train(config_path):
         clr=get_lrs(optimizer)
         bg=time.time()
         model.train()
-        print('epoch |   lr    |         %         |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
+        print('epoch |   lr    |         %         |f1score |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
         for batch_i, (imgs, targets) in enumerate(traindataloader):
             imgs=imgs.to(device)
             targets=targets.to(device)
+#            print(imgs.cpu().detach().numpy().max(),imgs.cpu().detach().numpy().min(),targets.cpu().detach().numpy().min(),targets.cpu().detach().numpy().max())
             optimizer.zero_grad()
             output=model(imgs)
             loss=lossfunction(output, targets)
-            print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} |'.format(
-                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__()*config['batchsize'], loss.item(),
+            F1SCORE=F1score(output.cpu().detach(),targets.cpu().detach())
+            print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} | {:.4f} |'.format(
+                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__()*config['batchsize'], F1SCORE,loss.item(),
                                              train_loss / (batch_i + 1)), end='')
             loss.backward()
             optimizer.step()
 
             train_loss += loss.item()
-            if batch_i>280741//80:
+            if batch_i>280741//8:
                 break
         iou,iout=validate(model,valdaraloader,epoch)
-        if iou>bestiout:
-            bestiout = iou
-            path=pathdir+'/'+'Iout-{:.4f}.pkl'.format(bestiout)
+        if iout>bestiout:
+            bestiout = iout
+            path=pathdir+'/'+'Iout-{:.4f}-IoU-{:.4f}.pkl'.format(bestiout,iou)
             torch.save(model.state_dict(),path)
         print(' {:.4f} | {:.4f} | {:.4f} | {:.2f} | {:4s}                               |'.format(iou, iout, bestiout, (time.time() - bg) / 60,pathdir))
         if config['lr_scheduler']== 'RP':
@@ -137,8 +141,6 @@ def train(config_path):
     del model,traindataloader,valdaraloader,optimizer,lr_scheduler
     torch.cuda.empty_cache()
     logger.info('-------Experiment have finish!-------')
-
-
 if __name__=='__main__':
     train('config.yml')
 
