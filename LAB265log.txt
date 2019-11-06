@@ -373,3 +373,59 @@
 2019-11-06 10:04:26,182 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
 2019-11-06 10:04:26,458 - __main__ - INFO - Using Adam as optimizer 
 2019-11-06 10:04:26,458 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:03:29,558 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:03:29,586 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:03:51,788 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:03:51,788 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:04:00,140 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:04:02,756 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:04:02,756 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:05:40,712 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:05:40,717 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:05:59,740 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:05:59,740 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:06:01,973 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:06:02,284 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:06:02,284 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:06:59,526 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:06:59,531 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:07:18,745 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:07:18,746 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:07:20,976 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:07:21,289 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:07:21,289 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:08:29,400 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:08:29,405 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:08:48,466 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:08:48,466 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:08:50,704 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:08:51,015 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:08:51,015 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:11:10,937 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:11:10,942 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:11:29,944 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:11:29,944 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:11:32,165 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:11:32,476 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:11:32,477 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:12:11,858 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:12:11,863 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:12:30,955 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:12:30,955 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:12:33,168 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:12:33,479 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:12:33,479 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:13:51,447 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:13:51,449 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:14:09,241 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:14:09,241 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:14:11,424 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:14:11,710 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:14:11,710 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-06 17:16:11,616 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-06 17:16:11,618 - __main__ - INFO - cuda:1 Device is available 
+2019-11-06 17:16:29,528 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-06 17:16:29,528 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-06 17:16:31,734 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
+2019-11-06 17:16:32,005 - __main__ - INFO - Using Adam as optimizer 
+2019-11-06 17:16:32,005 - __main__ - INFO - Using Cos as  learning scheduler

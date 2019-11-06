@@ -27,7 +27,7 @@ def iout(imgs_pred, imgs_true):
         if imgs_true[i].sum() == imgs_pred[i].sum() == 0:
             scores[i] = 1
         else:
-            scores[i] = (iou_thresholds <= ioubase(imgs_pred[i],imgs_true[i])).mean()
+            scores[i] = (iou_thresholds <= ioubase(imgs_pred[i],imgs_true[i]).numpy()).mean()
     return list(scores)
 
 def IoU(pr,yt):
