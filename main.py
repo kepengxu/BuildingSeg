@@ -64,7 +64,7 @@ def train(config_path):
     logger.info("-----------Start parse experiments-------------")
     f=open(config_path)
     config=yaml.load(f)
-
+    logger.info('The all train config follow this ! \n############################################################### \n '+f.read()+'\n####################################################### \n')
     logger.info(str(device) + ' Device is available ')
 
     traindataloader,valdaraloader=GetDataloader(trainimagepath=config['CrowdaiData']['trainimagepath'],
@@ -136,7 +136,7 @@ def train(config_path):
             lr_scheduler.step(bestiout)
         else:
             lr_scheduler.step()
-            
+
 
 
     del model,traindataloader,valdaraloader,optimizer,lr_scheduler
