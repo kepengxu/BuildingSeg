@@ -136,6 +136,7 @@ def train(config_path):
             lr_scheduler.step(bestiout)
         else:
             lr_scheduler.step()
+            
 
 
     del model,traindataloader,valdaraloader,optimizer,lr_scheduler
