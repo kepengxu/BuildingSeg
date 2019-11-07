@@ -25,7 +25,7 @@ import torch
 from torchvision import models
 from torchvision.models import resnet34, resnet101, resnet50, resnet152
 import torchvision
-
+from torchsummary import summary
 
 def conv3x3(in_, out):
     return nn.Conv2d(in_, out, 3, padding=1)
@@ -598,11 +598,12 @@ class UNet8(nn.Module):
 
 
 def test():
-    model = UNet8(50, num_filters=32,inchannel=3)
-    inputs = torch.randn(2,3,128,128)
-    out= model(inputs)
+    model = UNet8(50, num_filters=32,inchannel=3).cuda()
+    # inputs = torch.randn(2,3,128,128)
+    summary(model,(3,128,128))
+    # out= model(inputs)
     #print(model)
-    print(out.size()) #, cls_taret.size())
+    # print(out.size()) #, cls_taret.size())
     #print(out)
 
 

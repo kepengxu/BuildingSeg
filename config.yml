@@ -1,12 +1,12 @@
 dataroot: "/Disk4/xkp/project/BuildingSeg"
 modellogdir: "LOG"
 modeltype: "Unet8"                            # Unet
-batchsize: 8
+batchsize: 32
 updatetimes: 2
-optimizer: Adam                               #   Adam or SGD
-lr: 0.005
+optimizer: SGD                               #   Adam or SGD
+lr: 0.001
 lr_scheduler: Cos                             #   Cos or Rp
-init_ckp: "/Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl"
+init_ckp: "/Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7044-IoU-0.8058.pkl"
 epoch: 80
 CrowdaiData:
   trainimagepath: "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/train/images"

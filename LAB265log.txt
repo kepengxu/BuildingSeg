@@ -429,3 +429,62 @@
 2019-11-06 17:16:31,734 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7944.pkl...
 2019-11-06 17:16:32,005 - __main__ - INFO - Using Adam as optimizer 
 2019-11-06 17:16:32,005 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-07 11:04:17,667 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:04:17,713 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+####################################################### 
+
+2019-11-07 11:04:17,713 - __main__ - INFO - cuda:1 Device is available 
+2019-11-07 11:04:39,972 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-07 11:04:39,972 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-07 11:04:42,176 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7044-IoU-0.8058.pkl...
+2019-11-07 11:04:42,677 - __main__ - INFO - Using SGD as optimizer 
+2019-11-07 11:04:42,677 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-07 11:06:10,435 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:06:10,436 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+####################################################### 
+
+2019-11-07 11:06:10,436 - __main__ - INFO - cuda:1 Device is available 
+2019-11-07 11:06:28,748 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-07 11:06:28,749 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-07 11:06:31,000 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7044-IoU-0.8058.pkl...
+2019-11-07 11:06:31,295 - __main__ - INFO - Using SGD as optimizer 
+2019-11-07 11:06:31,295 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-07 11:08:47,407 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:08:47,409 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-07 11:08:47,409 - __main__ - INFO - 
+2019-11-07 11:08:47,409 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-07 11:08:47,409 - __main__ - INFO - cuda:1 Device is available 
+2019-11-07 11:09:18,087 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:09:18,089 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-07 11:09:18,089 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-07 11:09:18,089 - __main__ - INFO - cuda:1 Device is available 
+2019-11-07 11:10:23,273 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:10:23,274 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-07 11:11:08,777 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-07 11:11:08,779 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-07 11:11:08,779 - __main__ - INFO - 
+2019-11-07 11:11:08,779 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-07 11:11:08,779 - __main__ - INFO - cuda:1 Device is available 
+2019-11-07 11:11:27,128 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-07 11:11:27,128 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/Unet8  >
+2019-11-07 11:11:29,385 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/Unet8/Iout-0.7044-IoU-0.8058.pkl...
+2019-11-07 11:11:29,670 - __main__ - INFO - Using SGD as optimizer 
+2019-11-07 11:11:29,670 - __main__ - INFO - Using Cos as  learning scheduler

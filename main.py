@@ -64,7 +64,10 @@ def train(config_path):
     logger.info("-----------Start parse experiments-------------")
     f=open(config_path)
     config=yaml.load(f)
-    logger.info('The all train config follow this ! \n############################################################### \n '+f.read()+'\n####################################################### \n')
+    logger.info('The all train config follow this ! \n############################################################### \n ')
+    s=f.read().replace('\n','#')
+    logger.info(s)
+    logger.info('\n############################################################### \n ')
     logger.info(str(device) + ' Device is available ')
 
     traindataloader,valdaraloader=GetDataloader(trainimagepath=config['CrowdaiData']['trainimagepath'],
@@ -124,7 +127,7 @@ def train(config_path):
             optimizer.step()
 
             train_loss += loss.item()
-            if batch_i>280741//8:
+            if batch_i>280741//config['batchsize']:
                 break
         iou,iout=validate(model,valdaraloader,epoch)
         if iout>bestiout:
