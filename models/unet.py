@@ -366,7 +366,7 @@ class UNetResNetV6(nn.Module):
         self.decoder3 = DecoderBlockV5(64, bottom_channel_nr // 4,  num_filters * 4,  64)
         self.decoder2 = DecoderBlockV5(64, bottom_channel_nr // 8, num_filters * 2,  64)
         self.decoder1 = DecoderBlockV5(64, 0, num_filters, 64)
-
+        self.sigmod=nn.Sigmoid()
         self.logit = nn.Sequential(
             nn.Conv2d(512, 64, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
@@ -404,9 +404,10 @@ class UNetResNetV6(nn.Module):
         ), 1)
 
         f = F.dropout2d(f, p=self.dropout_2d, training=self.training)
+        o=self.logit(f)
+        o=self.sigmod(o)
 
-
-        return self.logit(f)
+        return o
 
 
 class DecoderBlockV7(nn.Module):
@@ -598,7 +599,7 @@ class UNet8(nn.Module):
 
 
 def test():
-    model = UNet8(50, num_filters=32,inchannel=3).cuda()
+    model = UNetResNetV6(34, num_filters=32,inchannel=3).cuda()
     # inputs = torch.randn(2,3,128,128)
     summary(model,(3,128,128))
     # out= model(inputs)

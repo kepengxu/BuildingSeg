@@ -2,7 +2,7 @@ from torch import nn
 import yaml
 import logging
 import time
-from models.unet import UNet8
+from models.unet import UNet8,UNetResNetV6
 import torch
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 from torch import optim
@@ -13,7 +13,8 @@ from utils.metrics import *
 from preporcess.CrowdaiData import GetDataloader
 from multiprocessing import cpu_count
 modeldict={
-    'Unet8':UNet8
+    'Unet8':UNet8,
+    'UNetResNetV6':UNetResNetV6
 }
 import os
 from utils.RAdam import RAdam
@@ -82,7 +83,7 @@ def train(config_path):
     if not os.path.exists(pathdir):
         os.makedirs(pathdir)
     logger.info('The model ckp will save in :'+' <  '+pathdir+'  >')
-    model=modeldict[config['modeltype']](50,3).to(device)
+    model=modeldict[config['modeltype']](34,3,num_filters=32, dropout_2d=0.4).to(device)
     bestiout=0.0
     if not config['init_ckp'] == 'None':
         CKP=config['init_ckp']
