@@ -75,7 +75,7 @@ class CrowdaiData(data.Dataset):
 
 
 
-
+  
         image=ContrastEnhancement(image)
         mask = (Tmask >= 0.8).astype('float32')
         augment=self.TR(image=image,mask=mask)
