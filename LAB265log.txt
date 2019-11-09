@@ -597,3 +597,129 @@
 2019-11-07 18:07:11,588 - __main__ - INFO - Not loadding weights
 2019-11-07 18:07:11,589 - __main__ - INFO - Using Adam as optimizer 
 2019-11-07 18:07:11,589 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:24:46,197 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:24:46,213 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:24:46,213 - __main__ - INFO - 
+2019-11-09 10:24:46,213 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:24:46,213 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:25:08,503 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:25:08,503 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:25:17,108 - __main__ - INFO - Not loadding weights
+2019-11-09 10:25:17,109 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:25:17,109 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:25:36,759 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:25:36,761 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:25:36,761 - __main__ - INFO - 
+2019-11-09 10:25:36,761 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:25:36,761 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:25:54,962 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:25:54,962 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:25:57,491 - __main__ - INFO - Not loadding weights
+2019-11-09 10:25:57,492 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:25:57,492 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:26:20,633 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:26:20,635 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:26:20,635 - __main__ - INFO - 
+2019-11-09 10:26:20,635 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:26:20,636 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:26:38,713 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:26:38,714 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:26:40,892 - __main__ - INFO - Not loadding weights
+2019-11-09 10:26:40,893 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:26:40,893 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:27:40,983 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:27:40,984 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:27:40,984 - __main__ - INFO - 
+2019-11-09 10:27:40,985 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:27:40,985 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:27:58,933 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:27:58,933 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:31:10,820 - __main__ - INFO - Not loadding weights
+2019-11-09 10:31:10,821 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:31:10,821 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:31:55,966 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:31:55,968 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:31:55,968 - __main__ - INFO - 
+2019-11-09 10:31:55,968 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:31:55,968 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:32:13,815 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:32:13,815 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:32:16,310 - __main__ - INFO - Not loadding weights
+2019-11-09 10:32:16,311 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:32:16,311 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:32:41,644 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:32:41,646 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:32:41,646 - __main__ - INFO - 
+2019-11-09 10:32:41,646 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:32:41,646 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:32:59,497 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:32:59,497 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:33:01,993 - __main__ - INFO - Not loadding weights
+2019-11-09 10:33:01,994 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:33:01,994 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:44:16,454 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:44:16,456 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:44:16,457 - __main__ - INFO - 
+2019-11-09 10:44:16,457 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:44:16,457 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:44:17,857 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:44:17,858 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:44:20,386 - __main__ - INFO - Not loadding weights
+2019-11-09 10:44:20,387 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:44:20,387 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 10:59:47,532 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 10:59:47,535 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 10:59:47,535 - __main__ - INFO - 
+2019-11-09 10:59:47,535 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 10:59:47,535 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 10:59:48,060 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 10:59:48,060 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 10:59:50,560 - __main__ - INFO - loading /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5/Iout-0.5109-IoU-0.6793.pkl...
+2019-11-09 10:59:51,163 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 10:59:51,163 - __main__ - INFO - Using Cos as  learning scheduler
+2019-11-09 13:40:02,494 - __main__ - INFO - -----------Start parse experiments-------------
+2019-11-09 13:40:02,496 - __main__ - INFO - The all train config follow this ! 
+############################################################### 
+ 
+2019-11-09 13:40:02,496 - __main__ - INFO - 
+2019-11-09 13:40:02,496 - __main__ - INFO - 
+############################################################### 
+ 
+2019-11-09 13:40:02,496 - __main__ - INFO - cuda:1 Device is available 
+2019-11-09 13:40:03,032 - __main__ - INFO - Obtain Dataloader successful 
+2019-11-09 13:40:03,032 - __main__ - INFO - The model ckp will save in : <  /Disk4/xkp/project/BuildingSeg/LOG/UNetResNetV5  >
+2019-11-09 13:40:05,537 - __main__ - INFO - Not loadding weights
+2019-11-09 13:40:05,538 - __main__ - INFO - Using Adam as optimizer 
+2019-11-09 13:40:05,539 - __main__ - INFO - Using Cos as  learning scheduler

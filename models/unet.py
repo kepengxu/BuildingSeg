@@ -294,7 +294,7 @@ class UNetResNetV5(nn.Module):
         self.decoder3 = DecoderBlockV5(64, bottom_channel_nr // 4,  num_filters * 4,  64)
         self.decoder2 = DecoderBlockV5(64, bottom_channel_nr // 8, num_filters * 2,  64)
         self.decoder1 = DecoderBlockV5(64, 0, num_filters, 64)
-
+        self.sigmod=nn.Sigmoid()
         self.logit = nn.Sequential(
             nn.Conv2d(320, 64, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
@@ -325,8 +325,11 @@ class UNetResNetV5(nn.Module):
         ), 1)
 
         f = F.dropout2d(f, p=self.dropout_2d)
+        o=self.logit(f)
+        o=self.sigmod(o)
 
-        return self.logit(f)
+        return o
+
 
 class UNetResNetV6(nn.Module):
     '''

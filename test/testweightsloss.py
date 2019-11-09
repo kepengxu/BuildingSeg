@@ -64,9 +64,21 @@ def make_weight_map(masks):
 # for i, (cx, cy, radius) in enumerate(params):
 #     rr, cc = draw.circle(cx, cy, radius)
 #     masks[i, rr, cc] = 1
+
+
+def GetWeights(masks):
+    masks = masks[np.newaxis, :, :]
+    masks = np.concatenate([masks, masks, masks], 0)
+    masks = np.array(masks > 127, np.float64)
+    print(masks.shape)
+    weights = make_weight_map(masks)
+    return weights
+
+
+
 import cv2
 #
-masks=cv2.imread('/home/cooper/PycharmProjects/SegDeepLab/testpicture/35ann35.jpg',cv2.IMREAD_GRAYSCALE)
+masks=cv2.imread('/Disk4/xkp/project/SegDeepLab/testpicture/35ann35.jpg',cv2.IMREAD_GRAYSCALE)
 masks=masks[np.newaxis,:,:]
 masks=np.concatenate([masks,masks,masks],0)
 masks=np.array(masks>127,np.float64)
@@ -78,6 +90,7 @@ ax1.set_axis_off()
 ax1.set_title('True Masks', fontsize=15)
 
 weights = make_weight_map(masks)
+# weights=cv2.GaussianBlur(weights,(3,3),0)
 pos = ax2.imshow(weights)
 ax2.set_axis_off()
 ax2.set_title('Weights', fontsize=15)

@@ -2,7 +2,7 @@ from torch import nn
 import yaml
 import logging
 import time
-from models.unet import UNet8,UNetResNetV6
+from models.unet import UNet8,UNetResNetV6,UNetResNetV5,UNetResNetV4
 import torch
 from torch.optim.lr_scheduler import CosineAnnealingLR, ReduceLROnPlateau
 from torch import optim
@@ -14,7 +14,8 @@ from preporcess.CrowdaiData import GetDataloader
 from multiprocessing import cpu_count
 modeldict={
     'Unet8':UNet8,
-    'UNetResNetV6':UNetResNetV6
+    'UNetResNetV6':UNetResNetV6,
+    'UNetResNetV5':UNetResNetV5
 }
 import os
 from utils.RAdam import RAdam
@@ -83,7 +84,7 @@ def train(config_path):
     if not os.path.exists(pathdir):
         os.makedirs(pathdir)
     logger.info('The model ckp will save in :'+' <  '+pathdir+'  >')
-    model=modeldict[config['modeltype']](34,3,num_filters=32, dropout_2d=0.4).to(device)
+    model=modeldict[config['modeltype']](101,3,num_filters=32, dropout_2d=0.4).to(device)
     bestiout=0.0
     if not config['init_ckp'] == 'None':
         CKP=config['init_ckp']
@@ -122,13 +123,13 @@ def train(config_path):
             loss=lossfunction(output, targets)
             F1SCORE=F1score(output.cpu().detach(),targets.cpu().detach())
             print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} | {:.4f} |'.format(
-                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__()*config['batchsize'], F1SCORE,loss.item(),
+                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__(), F1SCORE,loss.item(),
                                              train_loss / (batch_i + 1)), end='')
             loss.backward()
             optimizer.step()
 
             train_loss += loss.item()
-            if batch_i>280741//config['batchsize']:
+            if batch_i>28000//config['batchsize']:
                 break
         iou,iout=validate(model,valdaraloader,epoch)
         if iout>bestiout:

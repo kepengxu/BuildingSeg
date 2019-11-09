@@ -93,8 +93,8 @@ class CrowdaiData(data.Dataset):
             )
         List_Transforms.extend(
             [
-
-                # Normalize(mean=(0.397657144,0.351649219,0.305031406),std=(0.229, 0.224, 0.225)),
+                # [0.12110683835022196, 0.1308642819666743, 0.14265566800591103]
+                Normalize(mean=(0.397657144,0.351649219,0.305031406),std=(0.12110683835022196, 0.1308642819666743, 0.14265566800591103)),
                 RandomCrop(self.shape, self.shape),
                 ToTensor(),
 

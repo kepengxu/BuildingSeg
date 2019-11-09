@@ -1,7 +1,7 @@
 dataroot: "/Disk4/xkp/project/BuildingSeg"
 modellogdir: "LOG"
-modeltype: "UNetResNetV6"                            # Unet
-batchsize: 32
+modeltype: "UNetResNetV5"                            # Unet
+batchsize: 16
 updatetimes: 2
 optimizer: Adam                               #   Adam or SGD
 lr: 0.001
@@ -10,8 +10,8 @@ init_ckp: "None"
 epoch: 80
 CrowdaiData:
   trainimagepath: "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/train/images"
-  trainmaskpath:  "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/train/annotation.json"
+  trainmaskpath:  "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/train/annotation-small.json"
   valimagepath:   "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/val/images"
-  valmaskpath:    "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/val/annotation.json"
+  valmaskpath:    "/Disk4/xkp/Segmenttion/xkp/Dataset/Crowdai/val/annotation-small.json"
   shape: 128
   padshape: 312
