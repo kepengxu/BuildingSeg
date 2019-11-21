@@ -1,6 +1,6 @@
 dataroot: "/Disk4/xkp/project/BuildingSeg"
 modellogdir: "LOG"
-modeltype: "UNetResNetV5"                            # Unet
+modeltype: "HRNet"                            # Unet
 batchsize: 16
 updatetimes: 2
 optimizer: Adam                               #   Adam or SGD

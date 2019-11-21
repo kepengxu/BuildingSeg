@@ -2,7 +2,7 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.6 (SegDeepLab)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Remote Python 3.6.9 (sftp://lsy@10.10.4.212:22/Disk4/xkp/conda3/bin/python) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d6079075-0d88-4618-a4e7-5edcdf17fa46" name="BuildingSeg-RUN" url="http://10.10.4.212">
+        <fileTransfer host="10.10.4.212" port="22" rootFolder="/Disk4/xkp/project/BuildingSeg" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>LAB265</name>
+        <servers>
+          <name value="BuildingSeg-RUN" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>

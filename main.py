@@ -12,10 +12,17 @@ print(socket.gethostname())
 from utils.metrics import *
 from preporcess.CrowdaiData import GetDataloader
 from multiprocessing import cpu_count
+from utils.hrnetconfig import parse_args
+from utils.hrnetconfig import _C
+from models.hrnet import get_seg_model
+hrnetpar=parse_args()
+hrnet=get_seg_model(_C)
 modeldict={
     'Unet8':UNet8,
     'UNetResNetV6':UNetResNetV6,
-    'UNetResNetV5':UNetResNetV5
+    'UNetResNetV5':UNetResNetV5,
+    'UNetResNetV4':UNetResNetV4,
+    'HRNet':hrnet
 }
 import os
 from utils.RAdam import RAdam
