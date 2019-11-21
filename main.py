@@ -144,10 +144,11 @@ def train(config_path):
             tn+=1
             timeloss+=loss
             F1SCORE=F1score(output.cpu().detach(),targets.cpu().detach())
-            print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} | {:.4f} |'.format(
-                epoch, float(clr[0]), (batch_i + 1), traindataloader.__len__(), F1SCORE,loss.item(),
-                                             train_loss / (batch_i + 1)), end='')
+
             if tn==update_weights-1:
+                print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} | {:.4f} |'.format(
+                    epoch, float(clr[0]), (batch_i + 1), traindataloader.__len__(), F1SCORE, timeloss.item(),
+                    train_loss / (batch_i + 1)), end='')
                 timeloss=timeloss/update_weights
                 timeloss.backward()
                 optimizer.step()
