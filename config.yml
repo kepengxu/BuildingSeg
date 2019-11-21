@@ -1,10 +1,11 @@
 dataroot: "/Disk4/xkp/project/BuildingSeg"
 modellogdir: "LOG"
 modeltype: "HRNet"                            # Unet
-batchsize: 16
+batchsize: 4
 updatetimes: 2
 optimizer: Adam                               #   Adam or SGD
 lr: 0.001
+updateweights: 4
 lr_scheduler: Cos                             #   Cos or Rp
 init_ckp: "None"
 epoch: 80

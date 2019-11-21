@@ -91,7 +91,17 @@ def train(config_path):
     if not os.path.exists(pathdir):
         os.makedirs(pathdir)
     logger.info('The model ckp will save in :'+' <  '+pathdir+'  >')
-    model=modeldict[config['modeltype']](101,3,num_filters=32, dropout_2d=0.4).to(device)
+
+##################################################################################################
+
+    if config['modeltype']=='HRNet':
+        model=hrnet
+        model.init_weights('/home/cooper/PycharmProjects/BuildingSeg/preweights/hrnet_w48_cityscapes_cls19_1024x2048_trainset_pytorch_v11.pth')
+        model.to(device)
+    else:
+        model=modeldict[config['modeltype']](101,3,num_filters=32, dropout_2d=0.4).to(device)
+
+##################################################################################################
     bestiout=0.0
     if not config['init_ckp'] == 'None':
         CKP=config['init_ckp']
@@ -120,6 +130,9 @@ def train(config_path):
         clr=get_lrs(optimizer)
         bg=time.time()
         model.train()
+        update_weights=config['updateweights']
+        tn=0
+        timeloss=0.0
         print('epoch |   lr    |         %         |f1score |  loss  |  avg   |  iou   | iout   |  best  | time |  filepath   |')
         for batch_i, (imgs, targets) in enumerate(traindataloader):
             imgs=imgs.to(device)
@@ -128,12 +141,19 @@ def train(config_path):
             optimizer.zero_grad()
             output=model(imgs)
             loss=lossfunction(output, targets)
+            tn+=1
+            timeloss+=loss
             F1SCORE=F1score(output.cpu().detach(),targets.cpu().detach())
             print('\r {:4d} | {:.5f} | {:8d}/{:8d} | {:.4f} | {:.4f} | {:.4f} |'.format(
-                epoch, float(clr[0]), config['batchsize'] * (batch_i + 1), traindataloader.__len__(), F1SCORE,loss.item(),
+                epoch, float(clr[0]), (batch_i + 1), traindataloader.__len__(), F1SCORE,loss.item(),
                                              train_loss / (batch_i + 1)), end='')
-            loss.backward()
-            optimizer.step()
+            if tn==update_weights-1:
+                timeloss=timeloss/update_weights
+                timeloss.backward()
+                optimizer.step()
+                tn=0
+                timeloss=0.0
+
 
             train_loss += loss.item()
             if batch_i>28000//config['batchsize']:

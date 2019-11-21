@@ -309,7 +309,7 @@ class HighResolutionNet(nn.Module):
             self.stage4_cfg, num_channels, multi_scale_output=True)
 
         last_inp_channels = np.int(np.sum(pre_stage_channels))
-
+        self.sigmoid=nn.Sigmoid()
         self.last_layer = nn.Sequential(
             nn.Conv2d(
                 in_channels=last_inp_channels,
@@ -451,6 +451,7 @@ class HighResolutionNet(nn.Module):
         x = torch.cat([x[0], x1, x2, x3], 1)
 
         x = self.last_layer(x)
+        x=self.sigmoid(x)
 
         return x
 
@@ -466,8 +467,12 @@ class HighResolutionNet(nn.Module):
             pretrained_dict = torch.load(pretrained, map_location=torch.device('cpu'))
             logger.info('=> loading pretrained model {}'.format(pretrained))
             model_dict = self.state_dict()
+            for k, v in pretrained_dict.items():
+                if not v.shape == model_dict[k].shape:
+                    print(k,v.shape,model_dict[k].shape)
             pretrained_dict = {k: v for k, v in pretrained_dict.items()
-                               if k in model_dict.keys()}
+                               if not v.shape == model_dict[k].shape
+                               if k in model_dict.keys() and v.shape == model_dict[k].shape}
             # for k, _ in pretrained_dict.items():
             #    logger.info(
             #        '=> loading {} pretrained model {}'.format(k, pretrained))

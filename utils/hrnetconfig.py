@@ -120,9 +120,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Train segmentation network')
 
     parser.add_argument('--cfg',
-                        default='/home/cooper/PycharmProjects/BuildingSeg/CONFIG/config_hrnet.ymal',
+                        default='CONFIG/config_hrnet.yaml',
                         help='experiment configure file name',
-                        required=True,
                         type=str)
     parser.add_argument("--local_rank", type=int, default=0)
     parser.add_argument('opts',
